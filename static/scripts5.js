@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData();
             formData.append('csvFile', files[0]);
             formData.append('industryName', industryName);
-            fetch('http://localhost:5000/upload-csv', {
+            fetch('/upload-csv', {
                 method: 'POST',
                 body: formData
             })
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Failed to add industry. " + industryName + " industry already exists.");
         }
         else if (industryName && columns.length) {
-            fetch('http://localhost:5000/update-industries', {
+            fetch('/update-industries', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
             factors[selectedIndustry] = factors[selectedIndustry].concat(newColumns);
             influencing_factors[selectedIndustry] = influencing_factors[selectedIndustry].concat(newColumns);
             // Send the update to the server
-            fetch('http://localhost:5000/update-columns', {
+            fetch('/update-columns', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
